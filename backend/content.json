@@ -1,0 +1,53 @@
+{
+  "profile": {
+    "name": "Your name",
+    "role": "Creative technologist & learning game designer",
+    "intro": "I bring computer science and physics into the design of playful learning experiences. Currently pursuing a master’s in Technology, Media, and Learning, specializing in games for learning.",
+    "email": "",
+    "links": []
+  },
+  "projects": [
+    {
+      "id": "orbital-play",
+      "title": "Orbital Playground",
+      "category": "Creative coding",
+      "number": "01",
+      "year": "SAMPLE",
+      "summary": "A space for exploring motion, gravity, and learning through experimentation.",
+      "question": "How might a playful simulation make an invisible physical system easier to understand?",
+      "approach": "Replace this example with your design process: the idea, a prototype, and what you learned from testing it.",
+      "reflection": "Add evidence from your own work here. Describe what changed, what surprised you, and what you would try next.",
+      "tags": ["Physics", "Interactive systems"],
+      "art": "orbit",
+      "sample": true
+    },
+    {
+      "id": "learning-through-play",
+      "title": "Rules of Discovery",
+      "category": "Games for learning",
+      "number": "02",
+      "year": "SAMPLE",
+      "summary": "A case-study starting point for a game that puts curiosity at the center.",
+      "question": "How can a game’s mechanics support a learning goal without interrupting play?",
+      "approach": "Document your learning goals, core loop, design decisions, and iterations. Add screenshots or playtest notes when available.",
+      "reflection": "Use this space for your actual playtest findings and next steps. This is a sample structure, not a completed project.",
+      "tags": ["Game design", "Learning design"],
+      "art": "tiles",
+      "sample": true
+    },
+    {
+      "id": "systems-notebook",
+      "title": "Systems / Sketchbook",
+      "category": "Experiments",
+      "number": "03",
+      "year": "SAMPLE",
+      "summary": "Small prototypes and questions at the intersection of code and design.",
+      "question": "What can we learn by building a small, imperfect version of an idea?",
+      "approach": "Collect a few experiments here, explaining the question behind each and linking to the code or playable prototype.",
+      "reflection": "A useful reflection can be short: what worked, what did not, and the question that remains.",
+      "tags": ["Prototyping", "Design research"],
+      "art": "wave",
+      "sample": true
+    }
+  ]
+}
