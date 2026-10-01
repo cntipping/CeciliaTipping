@@ -1,5 +1,19 @@
 import { useEffect, useId, useRef, useState } from "react";
 
+function SymbolIcon({ kind }: { kind: "star" | "up-right" | "down-left" | "up" }) {
+  return (
+    <svg className="symbol-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      {kind === "star" ? (
+        <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5" />
+      ) : (
+        <g transform={kind === "down-left" ? "rotate(180 12 12)" : kind === "up" ? "rotate(-45 12 12)" : undefined}>
+          <path d="M5 19L19 5M5 5h14v14" />
+        </g>
+      )}
+    </svg>
+  );
+}
+
 interface Project {
   id: string;
   title: string;
@@ -106,7 +120,7 @@ function ProjectArt({ kind }: { kind: Project["art"] }) {
       <div className="project-art art-tiles" aria-hidden="true">
         <div className="tile-grid">
           {["?", "✳", "+", "↗", "○", "!", "△", "×", "✳"].map((symbol, i) => (
-            <span key={i}>{symbol}</span>
+            <span key={i}>{symbol === "✳" ? <SymbolIcon kind="star" /> : symbol === "↗" ? <SymbolIcon kind="up-right" /> : symbol}</span>
           ))}
         </div>
         <span className="art-caption">LEARN THE RULES. CHANGE THE GAME.</span>
@@ -230,7 +244,7 @@ export default function App() {
       </a>
       <header>
         <a className="wordmark" href="#" aria-label="Back to top">
-          <span className="brand-symbol">✳</span>
+          <span className="brand-symbol"><SymbolIcon kind="star" /></span>
           <span>
             {name}
             <small>PLAY / LEARN / MAKE</small>
@@ -244,7 +258,7 @@ export default function App() {
             About <sup>02</sup>
           </a>
           <a className="nav-contact" href="#contact">
-            Let’s talk <span>↗</span>
+            Let’s talk <span><SymbolIcon kind="up-right" /></span>
           </a>
         </nav>
       </header>
@@ -252,7 +266,7 @@ export default function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="tiny-star">✳</span> A PORTFOLIO OF CURIOUS THINGS
+              <span className="tiny-star"><SymbolIcon kind="star" /></span> A PORTFOLIO OF CURIOUS THINGS
             </p>
             <h1 id="hero-title">
               SERIOUS
@@ -261,7 +275,7 @@ export default function App() {
               <br />
               <span>PLAY.</span>
               <span className="title-star" aria-hidden="true">
-                ✳
+                <SymbolIcon kind="star" />
               </span>
             </h1>
             <p className="hero-description">
@@ -271,7 +285,7 @@ export default function App() {
             </p>
             <div className="hero-bottom">
               <a className="solid-button" href="#work">
-                Explore my work <span>↙</span>
+                Explore my work <span><SymbolIcon kind="down-left" /></span>
               </a>
               <span className="mono">
                 CODE + DESIGN
@@ -310,13 +324,13 @@ export default function App() {
         </section>
         <div className="discipline-strip" aria-label="Areas of interest">
           <span>GAMES FOR LEARNING</span>
-          <b>✳</b>
+          <b><SymbolIcon kind="star" /></b>
           <span>CREATIVE TECHNOLOGY</span>
-          <b>✳</b>
+          <b><SymbolIcon kind="star" /></b>
           <span>COMPUTER SCIENCE</span>
-          <b>✳</b>
+          <b><SymbolIcon kind="star" /></b>
           <span>PHYSICS</span>
-          <b>✳</b>
+          <b><SymbolIcon kind="star" /></b>
         </div>
         <section id="work" className="work-section">
           <div className="section-heading">
@@ -378,7 +392,7 @@ export default function App() {
                     <ProjectArt kind={project.art} />
                     <span className="project-number">{project.number}</span>
                     <span className="project-open" aria-hidden="true">
-                      ↗
+                      <SymbolIcon kind="up-right" />
                     </span>
                   </div>
                   <div className="project-meta">
@@ -414,7 +428,7 @@ export default function App() {
               <em>Endlessly curious.</em>
             </h2>
             <span className="about-asterisk" aria-hidden="true">
-              ✳
+              <SymbolIcon kind="star" />
             </span>
           </div>
           <div className="about-copy">
@@ -471,7 +485,7 @@ export default function App() {
                   className="solid-button"
                   href={`mailto:${data.profile.email}`}
                 >
-                  Say hello <span>↗</span>
+                  Say hello <span><SymbolIcon kind="up-right" /></span>
                 </a>
               ) : (
                 <p className="contact-placeholder">
@@ -486,7 +500,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {link.label} ↗
+                  {link.label} <SymbolIcon kind="up-right" />
                 </a>
               ))}
             </div>
@@ -495,10 +509,10 @@ export default function App() {
       </main>
       <footer>
         <a href="#" className="footer-brand">
-          ✳ {name}
+          <SymbolIcon kind="star" /> {name}
         </a>
         <span>BUILT WITH CURIOSITY. ALWAYS IN PROGRESS.</span>
-        <a href="#">Back to top ↑</a>
+        <a href="#">Back to top <SymbolIcon kind="up" /></a>
       </footer>
       <ProjectDialog project={selected} close={() => setSelected(null)} />
     </>
