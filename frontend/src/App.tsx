@@ -198,7 +198,10 @@ export default function App() {
     const controller = new AbortController();
     setError(false);
     // Abort stale requests when retrying or unmounting (including StrictMode).
-    fetch("/api/portfolio", { signal: controller.signal })
+    const contentUrl = import.meta.env.MODE === "pages"
+      ? `${import.meta.env.BASE_URL}portfolio.json`
+      : "/api/portfolio";
+    fetch(contentUrl, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Portfolio request failed");
         return response.json() as Promise<Portfolio>;
