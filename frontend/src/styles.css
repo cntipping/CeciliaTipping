@@ -448,7 +448,7 @@ h2 {
   padding: 5px 8px;
   font-size: 10px;
 }
-.sample-note {
+.projects-note {
   font: 11px/1.6 var(--mono);
   color: #65665b;
   margin: 33px 0 0;
@@ -807,7 +807,7 @@ dialog .project-art {
     height: 66px;
     font-size: 47px;
   }
-  .sample-note {
+  .projects-note {
     font-size: 12px;
   }
   .about-section {
