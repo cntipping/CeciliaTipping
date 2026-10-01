@@ -91,15 +91,15 @@ The starter was checked with a successful production build, four backend tests, 
 
 ## GitHub Pages
 
-The `main` branch deploys through `.github/workflows/pages.yml`. Set repository **Settings → Pages → Source** to **GitHub Actions**. Push updates to `main` and check the Actions tab. The published URL is https://cntipping.github.io/portfolio/.
+The `main` branch deploys through `.github/workflows/pages.yml`. Set repository **Settings → Pages → Source** to **GitHub Actions**. Push updates to `main` and check the Actions tab. The published URL is https://cntipping.github.io/CeciliaTipping/.
 
-The Pages build exports `backend/content.json` as `portfolio.json` and uses `/portfolio/` as its asset base. No Python server is needed on Pages. Continue editing `backend/content.json` for content updates. Normal development and the default production build still use Flask.
+The Pages build exports `backend/content.json` as `portfolio.json` and uses `/CeciliaTipping/` as its asset base. No Python server is needed on Pages. Continue editing `backend/content.json` for content updates. Normal development and the default production build still use Flask.
 
 Preview locally:
 
 ```sh
 npm --prefix frontend run build:pages
-npm --prefix frontend run preview -- --base=/portfolio/
+npm --prefix frontend run preview -- --base=/CeciliaTipping/
 ```
 
-Open http://127.0.0.1:4173/portfolio/.
+Open http://127.0.0.1:4173/CeciliaTipping/.

@@ -4,7 +4,7 @@ import content from "../backend/content.json";
 
 // Same-origin API requests keep local development free of CORS configuration.
 export default defineConfig(({ mode }) => ({
-  base: mode === "pages" ? "/portfolio/" : "/",
+  base: mode === "pages" ? "/CeciliaTipping/" : "/",
   plugins: [react(), ...(mode === "pages" ? [{
     name: "export-portfolio-content",
     generateBundle() {
