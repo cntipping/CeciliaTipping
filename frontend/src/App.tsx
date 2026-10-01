@@ -12,7 +12,6 @@ interface Project {
   reflection: string;
   tags: string[];
   art: "orbit" | "tiles" | "wave";
-  sample: boolean;
 }
 interface Portfolio {
   profile: {
@@ -171,11 +170,7 @@ function ProjectDialog({
           >
             ×
           </button>
-          <p className="eyebrow">
-            {project.sample
-              ? "Sample case study / replace with your work"
-              : project.category}
-          </p>
+          <p className="eyebrow"></p>
           <h2 id="project-title">{project.title}</h2>
           <p className="dialog-summary">{project.summary}</p>
           <ProjectArt kind={project.art} />
@@ -331,7 +326,7 @@ export default function App() {
             <p>
               Ideas made tangible.
               <br />
-              Questions turned into things you can play.
+              Questions turned into creations.
             </p>
           </div>
           <div className="work-toolbar">
@@ -385,9 +380,7 @@ export default function App() {
                   </div>
                   <div className="project-meta">
                     <span>{project.category}</span>
-                    <span>
-                      {project.sample ? "SAMPLE PROJECT" : project.year}
-                    </span>
+                    <span>{project.year}</span>
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
@@ -400,12 +393,12 @@ export default function App() {
               ))}
             </div>
           )}
-          {data?.projects.some((project) => project.sample) && (
-            <p className="sample-note">
-              This is a starting collection. Sample projects demonstrate the
-              case-study layout and will be replaced with original work.
-            </p>
-          )}
+          {(data && projects.length > 0 && (
+            <p className="projects-note">
+            This project collection includes personal, professional, and
+            academic projects.
+          </p>
+          ))}
         </section>
         <section id="about" className="about-section">
           <div className="about-title">
@@ -433,13 +426,13 @@ export default function App() {
             </p>
             <p>
               I’m interested in the moments when making, experimenting, and
-              playing become ways of understanding.
+              playing become ways of understanding and how we can develop technologies to foster it.
             </p>
             <dl>
               <div>
                 <dt>FOUNDATION</dt>
                 <dd>
-                  Computer Science & Physics<small>Undergraduate studies</small>
+                  Computer Science & Physics<small>Undergraduate studies · AI/ML</small>
                 </dd>
               </div>
               <div>
@@ -457,7 +450,7 @@ export default function App() {
           </div>
         </section>
         <section id="contact" className="contact-section">
-          <p className="eyebrow">03 / THE NEXT GOOD QUESTION</p>
+          <p className="eyebrow">03 / THE NEXT GREAT QUESTION</p>
           <div className="contact-row">
             <h2>
               Let’s make
