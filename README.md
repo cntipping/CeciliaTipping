@@ -79,7 +79,7 @@ source .venv/bin/activate
 gunicorn --bind 127.0.0.1:5001 backend.app:app
 ```
 
-Open http://127.0.0.1:5001. Flask now serves the compiled assets and API from one origin. For public hosting, use a Python-capable platform with Node available during the build, bind the WSGI server to the platform's assigned host/port, and let the platform terminate HTTPS. Do not expose Flask's development debugger publicly. No deployment has been configured.
+Open http://127.0.0.1:5001. Flask now serves the compiled assets and API from one origin. For public hosting, use a Python-capable platform with Node available during the build, bind the WSGI server to the platform's assigned host/port, and let the platform terminate HTTPS. Do not expose Flask's development debugger publicly. GitHub Pages deployment is configured separately below.
 
 ## Design references
 
@@ -88,3 +88,18 @@ The [New York Games Week site](https://nygamesweek.com/) informed the editorial 
 ### Verification notes
 
 The starter was checked with a successful production build, four backend tests, and browser checks for project filtering, modal opening/Escape dismissal and focus return, slider updates, and layouts at desktop and 390px mobile widths. No browser warnings or errors were observed during the production checks. The initial package installation stalled while building optional macOS `fsevents`; it was completed with `npm --prefix frontend install --ignore-scripts`. Both the production build and Vite development server then ran successfully. If the same optional build stalls on your machine, that flag is a possible workaround; verify `npm run build` afterward.
+
+## GitHub Pages
+
+The `main` branch deploys through `.github/workflows/pages.yml`. Set repository **Settings → Pages → Source** to **GitHub Actions**. Push updates to `main` and check the Actions tab. The published URL is https://cntipping.github.io/portfolio/.
+
+The Pages build exports `backend/content.json` as `portfolio.json` and uses `/portfolio/` as its asset base. No Python server is needed on Pages. Continue editing `backend/content.json` for content updates. Normal development and the default production build still use Flask.
+
+Preview locally:
+
+```sh
+npm --prefix frontend run build:pages
+npm --prefix frontend run preview -- --base=/portfolio/
+```
+
+Open http://127.0.0.1:4173/portfolio/.
