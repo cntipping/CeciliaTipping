@@ -1,4 +1,4 @@
-# Play / Learn — portfolio starter
+# Personal Website -- Cecilia Tipping
 
 A personal portfolio for a graduate student working at the intersection of computer science, physics, and games for learning. React + TypeScript + Vite serve the frontend; Flask exposes a small read-only content API and serves the production build. No database, account, API key, or external font service is required. `backend/requirements.txt` records direct dependencies; `backend/requirements-lock.txt` pins the tested Python environment. The frontend uses its committed npm lockfile.
 
