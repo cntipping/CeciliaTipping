@@ -910,3 +910,15 @@ dialog .project-art {
   stroke-linecap: square;
   stroke-linejoin: miter;
 }
+
+/* Procedural instrument covers, inspired by archival science-fiction scans. */
+.scan-art { background: #080609; color: var(--orange); }
+.scan-art svg { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 2px rgb(250 152 51 / 25%)); }
+.scan-neural { color: #ef638e; }
+.scan-stars { color: var(--gold); }
+.scan-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 3px, rgb(0 0 0 / 20%) 3px 4px); }
+.scan-art .art-caption { background: #080609; padding: 4px 6px; left: 14px; bottom: 8px; font-size: 8px; }
+.shuffle-covers { background: transparent; border: 1px solid var(--line); padding: 9px 13px; font: 12px var(--mono); white-space: nowrap; margin-left: auto; }
+.shuffle-covers:hover { border-color: var(--orange); color: var(--orange); }
+.shuffle-covers span { margin-left: 8px; }
+@media (max-width: 700px) { .work-toolbar { flex-wrap: wrap; } .shuffle-covers { margin-left: 0; } }

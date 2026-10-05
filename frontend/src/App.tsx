@@ -1,3 +1,4 @@
+import ScanArt, { type ScanKind } from "./ScanArt";
 import { useEffect, useId, useRef, useState } from "react";
 
 function SymbolIcon({ kind }: { kind: "star" | "up-right" | "down-left" | "up" }) {
@@ -25,7 +26,7 @@ interface Project {
   approach: string;
   reflection: string;
   tags: string[];
-  art: "orbit" | "tiles" | "wave";
+  art: "orbit" | "tiles" | "wave" | ScanKind;
 }
 interface Portfolio {
   profile: {
@@ -107,7 +108,8 @@ function OrbitalDiagram({ energy = 50 }: { energy?: number }) {
   );
 }
 
-function ProjectArt({ kind }: { kind: Project["art"] }) {
+function ProjectArt({ kind, seed = 1 }: { kind: Project["art"]; seed?: number }) {
+  if (kind === "gravity" || kind === "stars" || kind === "neural" || kind === "signal" || kind === "radar") return <ScanArt kind={kind} seed={seed} />;
   if (kind === "orbit")
     return (
       <div className="project-art art-orbit">
@@ -151,9 +153,11 @@ function ProjectArt({ kind }: { kind: Project["art"] }) {
 function ProjectDialog({
   project,
   close,
+  seed,
 }: {
   project: Project | null;
   close: () => void;
+  seed: number;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -187,7 +191,7 @@ function ProjectDialog({
           <p className="eyebrow"></p>
           <h2 id="project-title">{project.title}</h2>
           <p className="dialog-summary">{project.summary}</p>
-          <ProjectArt kind={project.art} />
+          <ProjectArt kind={project.art} seed={seed + Number(project.number) * 17} />
           <h3>The question</h3>
           <p>{project.question}</p>
           <h3>The process</h3>
@@ -206,6 +210,7 @@ export default function App() {
   const [attempt, setAttempt] = useState(0);
   const [filter, setFilter] = useState("All work");
   const [selected, setSelected] = useState<Project | null>(null);
+  const [coverSeed, setCoverSeed] = useState(1);
   const [energy, setEnergy] = useState(50);
 
   useEffect(() => {
@@ -358,6 +363,7 @@ export default function App() {
                 </button>
               ))}
             </div>
+            <button className="shuffle-covers" onClick={() => setCoverSeed(v => v + 1)}>Shuffle covers <span aria-hidden="true">↻</span></button>
             <span className="mono">
               {String(projects.length).padStart(2, "0")} EXPLORATIONS
             </span>
@@ -389,7 +395,7 @@ export default function App() {
                   aria-label={`Read ${project.title} case study`}
                 >
                   <div className="art-frame">
-                    <ProjectArt kind={project.art} />
+                    <ProjectArt kind={project.art} seed={coverSeed + Number(project.number) * 17} />
                     <span className="project-number">{project.number}</span>
                     <span className="project-open" aria-hidden="true">
                       <SymbolIcon kind="up-right" />
@@ -514,7 +520,7 @@ export default function App() {
         <span>BUILT WITH CURIOSITY. ALWAYS IN PROGRESS.</span>
         <a href="#">Back to top <SymbolIcon kind="up" /></a>
       </footer>
-      <ProjectDialog project={selected} close={() => setSelected(null)} />
+      <ProjectDialog project={selected} seed={coverSeed} close={() => setSelected(null)} />
     </>
   );
 }

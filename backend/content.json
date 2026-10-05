@@ -2,9 +2,18 @@
   "profile": {
     "name": "Cecilia Tipping",
     "role": "Creative technologist & learning game designer",
-    "intro": "With a formal training in computer science and physics I bring this experience into the design of playful learning experiences. Currently pursuing a master’s at Teachers College, Columbia University in Technology, Media, and Learning, specializing in games for learning.",
+    "intro": "With a formal training in computer science and physics I bring this experience into the design of playful learning experiences. Currently pursuing a master\u2019s at Teachers College, Columbia University in Technology, Media, and Learning, specializing in games for learning.",
     "email": "ceciliatipping04@gmail.com",
-    "links": [{"label": "GitHub", "url": "https://github.com/cntipping"}, {"label": "LinkedIn", "url": "https://linkedin.com/in/cecilia-tipping"}]
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/cntipping"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/cecilia-tipping"
+      }
+    ]
   },
   "projects": [
     {
@@ -17,8 +26,12 @@
       "question": "How can the mechanics of existing games inform the design of a new learning experience? What makes a prototype engaging enough to play while still supporting its intended purpose?",
       "approach": "Analyzed existing games to identify mechanics, interactions, and design choices that could be adapted for Wellbotics. Used these observations to ideate and build a playable prototype, then evaluated the experience through play and iteration to identify areas for improvement.",
       "reflection": "Working with Wellbotics has taught me to view game design as an iterative process of observation, experimentation, and refinement. Much of my work began by analyzing other games and asking why certain mechanics felt engaging, intuitive, or meaningful before considering how those ideas could be adapted into a new experience. Building a playable prototype made those design decisions tangible and exposed assumptions that were difficult to recognize during ideation alone. Each round of play created an opportunity to reconsider the mechanics, player experience, and intended purpose of the game, reinforcing for me that strong game design comes from repeatedly testing the relationship between what a designer intends and what a player actually experiences.",
-      "tags": ["Game Design", "Prototyping", "Iterative Design"],
-      "art": "wave"
+      "tags": [
+        "Game Design",
+        "Prototyping",
+        "Iterative Design"
+      ],
+      "art": "signal"
     },
     {
       "id": "samulator",
@@ -29,9 +42,13 @@
       "summary": "Seeking to create a fast emulator for one class of galaxy simulations to predict observable quantities such as the luminosity of different emission lines from physical quantities like star formation rates or galaxy diameter.",
       "question": "How can we streamline the scientific process using machine learning? What insights does this model provide into astrophysical processes?",
       "approach": "Utilizing Gaussian Processes to develop a collection of models to predict different emission line luminosity functions. Initial model created to run on a M3 chip using GpyTorch, Scipy, and Numpy. This version was then scaled up to run on SMU's HPCs and Nvidia Clusters. For performance maximization and comparisons, the pipeline then beagn to utilize JAX.",
-      "reflection": "This project pushed me to think about machine learning not simply as a predictive tool, but as a way to streamline the scientific process. By approximating computationally expensive astrophysical simulations, SAMulator allows researchers to explore parameter spaces and test ideas more efficiently, while also revealing relationships between galaxy properties and predicted line luminosities. Examining where the model performs well—and where it struggles—can offer insight into which physical relationships are more predictable and where the underlying astrophysics may be more complex. For me, the project demonstrates how machine learning can both accelerate scientific workflows and help guide the questions we ask of the science itself.",
-      "tags": ["Computational Astrophysics", "Machine Learning", "Research"],
-      "art": "orbit"
+      "reflection": "This project pushed me to think about machine learning not simply as a predictive tool, but as a way to streamline the scientific process. By approximating computationally expensive astrophysical simulations, SAMulator allows researchers to explore parameter spaces and test ideas more efficiently, while also revealing relationships between galaxy properties and predicted line luminosities. Examining where the model performs well\u2014and where it struggles\u2014can offer insight into which physical relationships are more predictable and where the underlying astrophysics may be more complex. For me, the project demonstrates how machine learning can both accelerate scientific workflows and help guide the questions we ask of the science itself.",
+      "tags": [
+        "Computational Astrophysics",
+        "Machine Learning",
+        "Research"
+      ],
+      "art": "gravity"
     },
     {
       "id": "comap-webtool",
@@ -43,8 +60,12 @@
       "question": "How can thoughtful design and full-stack development make complex scientific data more accessible, intuitive, and useful to researchers?",
       "approach": "Implemented React frontend to manage state and UI syncronization. Utilized Django backend to handle data filtration and query optimization. Database management relied on the MariaDB management system.",
       "reflection": "Working on the COMAP data visualization tool showed me that effective scientific software is as much a design challenge as it is a technical one. Researchers often work with large, highly specialized datasets, so the goal was not simply to display information, but to understand how users search, compare, and interpret that information and translate those workflows into an intuitive interface. Building across the full stack also taught me how closely frontend design decisions are connected to backend architecture and data organization. This project strengthened my interest in human-centered development and demonstrated how thoughtful software design can reduce friction between researchers and their data, allowing technology to better support scientific exploration.",
-      "tags": ["Full-Stack Development", "Data visualization", "Web Design"],
-      "art": "tiles"
+      "tags": [
+        "Full-Stack Development",
+        "Data visualization",
+        "Web Design"
+      ],
+      "art": "stars"
     },
     {
       "id": "ct-computer-vision",
@@ -56,8 +77,12 @@
       "question": "Can ML models be used as a prescreening tool for tumors? What tests should the model pass before being used in practice?",
       "approach": "Conducted transfer learning on the pretrained YOLOv8 model to adapt to domain specific features of brain tumors, improving localization accuracy, and gaining the ability to distinguish between tumor types.",
       "reflection": "The YOLO model uses a single convolutional neural network to perform regression, prediciting bounding box coordinates and confidence scores on test images in a single pass. Version 8 specifically introduces an anchor-free detection head, allowing for the model to adapt to varied object sizes and shapes--an important factor when working with irregulat tumor boundaries in medical imaging. By performing transfer learning and fine tuning the model using a brain tumor CT scan dataset, the model showed dramatic improvement with mean precision and recall improving by 0.8 in comparison to the base model. It is important to consider the real world consequences model errors will carry in this case. In particular, false negatives--where the model failes to detect a tumor that is actually present--is the most dangerous error potentially leading to a delay in diagnosis, enabling disease progression, and causing missed treatment opportunites. Minimizing such false negatives is critical if a model of this nature is applied in practice.",
-      "tags": ["Machine Learning", "Transfer Learning", "Computer Vision"],
-      "art": "wave"
+      "tags": [
+        "Machine Learning",
+        "Transfer Learning",
+        "Computer Vision"
+      ],
+      "art": "neural"
     },
     {
       "id": "ai-vacuum",
@@ -69,8 +94,12 @@
       "question": "How can we make responsive AI agents that interact with their given environment?",
       "approach": "Created a dirty room simulation environment that models sensor inputs, actuator effects, and performance measurement for an automative vacuum cleaner AI. Then, utilized core AI concepts to create a simple and model-based reflex agent before running a simulation study to compare performance.",
       "reflection": "The primary difference between the two agents is how they think about their presented environment. The simple reflect agent doesn't \"think\", rather it reacts to whatever is presented in front of it. If there is a dirty square, it cleans, and if the square is not dirty, it picks a random direction and moves. There is no memory, no sense of previously visited areas, and no larger plan. As for the model-based reflex agent, it carried a bit of state. It figures out when it is in a corner and then uses that knowledge to run a snake-like sweep through the room. That small amount of awareness creates a large awareness and effectiveness gap between the models.",
-      "tags": ["Artificial Intelligence", "Responsive Systems", "Experimentation"],
-      "art": "orbit"
+      "tags": [
+        "Artificial Intelligence",
+        "Responsive Systems",
+        "Experimentation"
+      ],
+      "art": "radar"
     }
   ]
 }
