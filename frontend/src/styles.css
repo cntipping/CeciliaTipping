@@ -1,14 +1,22 @@
 /* Design tokens: adjust these to change the portfolio's palette in one place. */
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #20231d;
-  background: #f4f1e8;
-  font-synthesis: none;
-  --paper: #f4f1e8;
-  --ink: #20231d;
-  --orange: #eb6026;
-  --line: #cacac0;
+  --black: #000000;
+  --orange: #FA9833;
+  --yellow: #FFFF66;
+  --gold: #F5D257;
+  --pink: #EC4956;
+  --magenta: #963353;
+  --amber: #A7651F;
+  --dark-brown: #1A0D06;
+  --paper: var(--black);
+  --ink: var(--yellow);
+  --line: var(--amber);
   --mono: "Courier New", monospace;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--gold);
+  background: var(--paper);
+  color-scheme: dark;
+  font-synthesis: none;
 }
 * {
   box-sizing: border-box;
@@ -41,7 +49,7 @@ button {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #317852;
+  outline: 3px solid var(--yellow);
   outline-offset: 5px;
 }
 button {
@@ -50,6 +58,9 @@ button {
 ::selection {
   background: var(--orange);
   color: var(--paper);
+}
+h1, h2, h3, .wordmark, .footer-brand {
+  color: var(--yellow);
 }
 header,
 main > section,
@@ -92,7 +103,7 @@ nav {
 nav sup {
   font: 10px var(--mono);
   margin-left: 6px;
-  color: #727369;
+  color: var(--gold);
 }
 .nav-contact {
   border: 1px solid var(--ink);
@@ -165,15 +176,15 @@ nav sup {
 }
 .solid-button:hover {
   background: var(--orange);
-  color: var(--ink);
+  color: var(--black);
 }
 .mono {
   font: 11px/1.5 var(--mono);
   letter-spacing: 0.5px;
 }
 .instrument {
-  background: #191e18;
-  color: #f3a333;
+  background: var(--dark-brown);
+  color: var(--orange);
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -190,7 +201,7 @@ nav sup {
     0deg,
     transparent,
     transparent 3px,
-    #0000000a 4px
+    rgb(0 0 0 / 4%) 4px
   );
 }
 .instrument-top {
@@ -202,11 +213,12 @@ nav sup {
   letter-spacing: 0.6px;
 }
 .instrument-tag {
-  border: 1px solid #a8772f;
+  border: 1px solid var(--amber);
   padding: 5px;
   font-size: 9px;
 }
 .orbital-svg {
+  filter: drop-shadow(0 0 4px rgb(250 152 51 / 30%));
   display: block;
   width: 100%;
   height: auto;
@@ -219,12 +231,12 @@ nav sup {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #665329;
+  border-top: 1px solid var(--amber);
   padding-top: 19px;
 }
 .instrument-foot p {
   font-size: 14px;
-  color: #c5bea5;
+  color: var(--gold);
   margin: 8px 0 19px;
 }
 .cross {
@@ -237,14 +249,14 @@ nav sup {
   gap: 12px;
   margin: 0 -25px;
   padding: 15px 25px;
-  border-top: 1px solid #665329;
+  border-top: 1px solid var(--amber);
   font: 9px var(--mono);
   letter-spacing: 0.5px;
 }
 .energy-control input {
   min-width: 40px;
   flex: 1;
-  accent-color: #f3a333;
+  accent-color: var(--orange);
   cursor: ew-resize;
 }
 .energy-control output {
@@ -252,6 +264,7 @@ nav sup {
 }
 .discipline-strip {
   background: var(--orange);
+  color: var(--black);
   padding: 21px 5%;
   display: flex;
   align-items: center;
@@ -290,7 +303,7 @@ h2 {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 0;
-  color: #616357;
+  color: var(--gold);
 }
 .work-toolbar {
   display: flex;
@@ -348,8 +361,8 @@ h2 {
   height: 110%;
 }
 .art-orbit {
-  background: #262e25;
-  color: #e9ad41;
+  background: var(--dark-brown);
+  color: var(--orange);
 }
 .art-caption {
   position: absolute;
@@ -383,7 +396,8 @@ h2 {
   transform: rotate(45deg);
 }
 .art-tiles {
-  background: #e66b36;
+  background: var(--pink);
+  color: var(--black);
 }
 .tile-grid {
   display: grid;
@@ -394,22 +408,22 @@ h2 {
 }
 .tile-grid > span {
   height: 62px;
-  background: #eace98;
-  border: 1px solid var(--ink);
+  background: var(--gold);
+  border: 1px solid var(--dark-brown);
   display: grid;
   place-items: center;
   font:
     46px Georgia,
     serif;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--dark-brown);
 }
 .tile-grid > span:nth-child(3n) {
-  background: var(--ink);
-  color: #eace98;
+  background: var(--magenta);
+  color: var(--gold);
 }
 .art-wave {
-  background: #dddebc;
-  color: #384b33;
+  background: var(--magenta);
+  color: var(--yellow);
 }
 .art-wave svg {
   width: 100%;
@@ -424,7 +438,7 @@ h2 {
   margin: 20px 0 12px;
 }
 .project-meta span:last-child {
-  color: #64675c;
+  color: var(--gold);
 }
 .project-card h3 {
   font-size: 25px;
@@ -434,7 +448,7 @@ h2 {
 .project-card > p {
   font-size: 14px;
   line-height: 1.6;
-  color: #626458;
+  color: var(--gold);
   max-width: 340px;
   margin: 12px 0 17px;
 }
@@ -444,13 +458,13 @@ h2 {
   flex-wrap: wrap;
 }
 .tags span {
-  border: 1px solid #c8c9bc;
+  border: 1px solid var(--amber);
   padding: 5px 8px;
   font-size: 10px;
 }
 .projects-note {
   font: 11px/1.6 var(--mono);
-  color: #65665b;
+  color: var(--gold);
   margin: 33px 0 0;
   border-top: 1px solid var(--line);
   padding-top: 15px;
@@ -461,7 +475,7 @@ h2 {
   gap: 8%;
   padding: 64px 5%;
   border-block: 1px solid var(--line);
-  background: #e9e9dc;
+  background: var(--dark-brown);
 }
 .about-title h2 {
   font-size: clamp(35px, 4.2vw, 62px);
@@ -470,7 +484,7 @@ h2 {
 .about-title h2 em {
   font-family: Georgia, serif;
   font-weight: 400;
-  color: #bd4717;
+  color: var(--pink);
 }
 .about-asterisk {
   display: block;
@@ -488,21 +502,21 @@ h2 {
 .about-copy > p {
   font-size: 16px;
   line-height: 1.7;
-  color: #53584a;
+  color: var(--gold);
 }
 dl {
   margin-top: 29px;
 }
 dl > div {
   padding: 17px 0;
-  border-top: 1px solid #c7cabc;
+  border-top: 1px solid var(--amber);
   display: grid;
   grid-template-columns: 125px 1fr;
   gap: 15px;
 }
 dt {
   font: 10px/1.8 var(--mono);
-  color: #666b5c;
+  color: var(--gold);
 }
 dd {
   font-size: 14px;
@@ -511,7 +525,7 @@ dd {
 }
 dd small {
   display: block;
-  color: #63685b;
+  color: var(--gold);
   font-size: 12px;
   margin-top: 3px;
 }
@@ -562,14 +576,14 @@ footer {
 }
 dialog {
   border: 1px solid var(--ink);
-  background: var(--paper);
+  background: var(--dark-brown);
   padding: 40px;
   width: min(720px, calc(100% - 32px));
   max-height: 88vh;
-  color: var(--ink);
+  color: var(--gold);
 }
 dialog::backdrop {
-  background: #10180fd1;
+  background: rgb(0 0 0 / 82%);
   backdrop-filter: blur(4px);
 }
 dialog .close {
@@ -896,3 +910,15 @@ dialog .project-art {
   stroke-linecap: square;
   stroke-linejoin: miter;
 }
+
+/* Procedural instrument covers, inspired by archival science-fiction scans. */
+.scan-art { background: #080609; color: var(--orange); }
+.scan-art svg { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 2px rgb(250 152 51 / 25%)); }
+.scan-neural { color: #ef638e; }
+.scan-stars { color: var(--gold); }
+.scan-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 3px, rgb(0 0 0 / 20%) 3px 4px); }
+.scan-art .art-caption { background: #080609; padding: 4px 6px; left: 14px; bottom: 8px; font-size: 8px; }
+.shuffle-covers { background: transparent; border: 1px solid var(--line); padding: 9px 13px; font: 12px var(--mono); white-space: nowrap; margin-left: auto; }
+.shuffle-covers:hover { border-color: var(--orange); color: var(--orange); }
+.shuffle-covers span { margin-left: 8px; }
+@media (max-width: 700px) { .work-toolbar { flex-wrap: wrap; } .shuffle-covers { margin-left: 0; } }
