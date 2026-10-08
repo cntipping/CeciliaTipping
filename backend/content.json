@@ -28,7 +28,7 @@
       "reflection": "Working with Wellbotics has taught me to view game design as an iterative process of observation, experimentation, and refinement. Much of my work began by analyzing other games and asking why certain mechanics felt engaging, intuitive, or meaningful before considering how those ideas could be adapted into a new experience. Building a playable prototype made those design decisions tangible and exposed assumptions that were difficult to recognize during ideation alone. Each round of play created an opportunity to reconsider the mechanics, player experience, and intended purpose of the game, reinforcing for me that strong game design comes from repeatedly testing the relationship between what a designer intends and what a player actually experiences.",
       "tags": [
         "Game Design",
-        "Prototyping",
+        "Social Emotional Learning",
         "Iterative Design"
       ],
       "art": "signal"
@@ -100,6 +100,40 @@
         "Experimentation"
       ],
       "art": "radar"
+    },
+    {
+      "id": "multilingual-game",
+      "title": "Multilingual Support Game",
+      "category": "Game Design & Development",
+      "number": "06",
+      "year": "2026",
+      "summary": "An open-world RPG to promote mutual language assistance/teaching through gameplay.",
+      "question": "How can collaborative gameplay support relationship building and reciprocal language learning among players with different native languages, and what cognitive and interactional processes contribute to these outcomes?",
+      "approach": "IN PROGRESS FOR GAMES RESEARCH LAB GAMEJAM 2026.",
+      "reflection": "IN PROGRESS FOR GAMES RESEARCH LAB GAMEJAM 2026.",
+      "tags": [
+        "Game Design",
+        "Gamejam Project",
+        "Language Learning Support"
+      ],
+      "art": "signal"
+    },
+    {
+      "id": "GRACEE",
+      "title": "GRACEE--Game-based Resources Adressing Cognitive & Emotional Education",
+      "category": "Game Design & Development",
+      "number": "07",
+      "year": "2026",
+      "summary": "Interactive mobile game centered around providing pediatric cancer and blood disorder patients with information on their diagnosis and social-emotional skills.",
+      "question": "How can gameplay serve as an early intervention to support understanding of diagnosis and social-emotional skill development among pediatric patients with cancer or blood disorders?",
+      "approach": "Currently in development.",
+      "reflection": "Currently in development.",
+      "tags": [
+        "Game Design",
+        "Social Emotional Learning",
+        "Iterative Design"
+      ],
+      "art": "neural"
     }
   ]
 }
