@@ -113,10 +113,28 @@ nav sup {
   margin-left: 23px;
 }
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   padding: 55px 5% 64px;
-  gap: 5%;
+  min-height: calc(100vh - 108px - 104px);
+}
+.hero .vanta-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero .hero-copy {
+  position: relative;
+  z-index: 1;
+}
+.vanta-background canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 .eyebrow {
   font: 12px var(--mono);
@@ -191,6 +209,19 @@ nav sup {
   padding: 22px 25px 0;
   position: relative;
   min-width: 0;
+}
+.instrument {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.vanta-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.instrument-top, .instrument-foot {
+  position: relative;
 }
 .instrument:after {
   content: "";

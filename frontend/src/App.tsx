@@ -39,6 +39,27 @@ interface Portfolio {
   projects: Project[];
 }
 
+declare global {
+  interface Window {
+    VANTA?: {
+      GLOBE: (options: {
+        el: HTMLElement;
+        mouseControls: boolean;
+        touchControls: boolean;
+        gyroControls: boolean;
+        minHeight: number;
+        minWidth: number;
+        scale: number;
+        scaleMobile: number;
+        color: number;
+        color2: number;
+        size: number;
+        backgroundColor: number;
+      }) => { destroy: () => void };
+    };
+  }
+}
+
 /** A mathematical wireframe, rather than a static hero image. */
 function OrbitalDiagram({ energy = 50 }: { energy?: number }) {
   const gridId = useId();
@@ -211,7 +232,28 @@ export default function App() {
   const [filter, setFilter] = useState("All work");
   const [selected, setSelected] = useState<Project | null>(null);
   const [coverSeed, setCoverSeed] = useState(1);
-  const [energy, setEnergy] = useState(50);
+  const vantaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!vantaRef.current || !window.VANTA) return;
+
+    const effect = window.VANTA.GLOBE({
+      el: vantaRef.current,
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0xff3f81,
+      color2: 0xfa9833,
+      size: 1.2,
+      backgroundColor: 0x000000,
+    });
+
+    return () => effect.destroy();
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -269,6 +311,10 @@ export default function App() {
       </header>
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
+          <div className="vanta-background"
+              ref={vantaRef}
+              aria-hidden="true"
+            />
           <div className="hero-copy">
             <p className="eyebrow">
               <span className="tiny-star"><SymbolIcon kind="star" /></span> A PORTFOLIO OF CURIOUS THINGS
@@ -279,9 +325,6 @@ export default function App() {
               ABOUT
               <br />
               <span>PLAY.</span>
-              <span className="title-star" aria-hidden="true">
-                <SymbolIcon kind="star" />
-              </span>
             </h1>
             <p className="hero-description">
               Exploring how we learn.
@@ -298,34 +341,19 @@ export default function App() {
               </span>
             </div>
           </div>
-          <div className="instrument">
+          {/* <div className="instrument">
             <div className="instrument-top">
               <span>INTERACTIVE SYSTEM / 001</span>
               <span className="instrument-tag">EXPLORATION MODE</span>
             </div>
-            <OrbitalDiagram energy={energy} />
             <div className="instrument-foot">
               <div>
                 <span className="mono">LEARNING ISN’T LINEAR.</span>
                 <p>Neither is the path to a good idea.</p>
               </div>
-              <span className="cross" aria-hidden="true">
-                +
-              </span>
+              <span className="cross" aria-hidden="true">+</span>
             </div>
-            <label className="energy-control">
-              <span>TRY A LITTLE CURIOSITY</span>
-              <input
-                aria-label="Adjust orbital exploration"
-                type="range"
-                min="0"
-                max="100"
-                value={energy}
-                onChange={(e) => setEnergy(Number(e.target.value))}
-              />
-              <output>{String(energy).padStart(3, "0")}</output>
-            </label>
-          </div>
+          </div> */}
         </section>
         <div className="discipline-strip" aria-label="Areas of interest">
           <span>GAMES FOR LEARNING</span>
